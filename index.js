@@ -1,17 +1,22 @@
+function numbers(n) {
 
-
-function numbers(n){
-    for (let a = 0; a <= n; a++) { 
-        
-        m=true
-        for (let l = 2; l < a; l++) { 
-            if (a % l === 0) {m=false};
+    const num = [];
+    for (let i = 2; num.length < n; i++) {
+        let flag = false;
+        for (let count = 0; count < i; count++) {
+            if (i % num[count] === 0) {
+                flag = true;
+                break;
+            }
         }
+        if (flag === false) {
+            num.push(i)
+        };
 
-        if (m) {console.log(a)}; 
     }
-    return 'Все простые числа выведены'
+    return num;
 }
+
 
 console.time();
 console.log(numbers(process.argv[2]));
